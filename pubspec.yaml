@@ -1,0 +1,20 @@
+name: maxi_proto_framework
+description: A starting point for Dart libraries or applications.
+version: 1.0.0
+publish_to: none
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.11.0
+
+# Add regular dependencies here.
+dependencies:
+  protobuf: ^6.0.0
+  grpc: ^5.1.0
+  # path: ^1.9.0
+  maxi_framework:
+    path: ../../NuevoRumbo/maxi_framework
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.6

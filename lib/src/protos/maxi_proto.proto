@@ -1,0 +1,131 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/descriptor.proto";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.maxi.framework";
+option java_outer_classname = "MaxiProtoFramework";
+option objc_class_prefix = "HLW";
+
+//package maxi_proto_framework;
+
+message ProtoDartDecorator{
+  repeated string             dart_decorators = 1;
+}
+
+message ProtoDartClass{
+  string                      name            = 1;
+  string                      dart_type       = 2;
+  repeated ProtoDartDecorator decorators      = 3;  
+}
+
+message ProtoDartField{
+  string                      name            = 1;
+  string                      dart_type       = 2;
+  repeated ProtoDartDecorator decorators      = 3;  
+}
+
+message ProtoDartEnum{
+  string                      name            = 1;
+  string                      prefix          = 2; //<-- ej: MXRT_UNKNOWN --In Dart---> unknown
+  string                      dart_type       = 3;
+  repeated ProtoDartDecorator decorators      = 4;  
+}
+
+message ProtoDartEnumValue{
+  string                      name            = 1;
+  int32                       number          = 2;
+  repeated ProtoDartDecorator decorators      = 3;  
+}
+
+/*
+message ProtoDartPositionalParameter{
+  string                      name            = 1;
+  string                      dart_type       = 2;
+  uint32                      position        = 3;
+  repeated ProtoDartDecorator decorators      = 4;  
+}
+
+message ProtoDartNamedParameter{
+  string                      name            = 1;
+  string                      dart_type       = 2;
+  bool                        is_required     = 3;
+  repeated ProtoDartDecorator decorators      = 4;  
+}
+
+message ProtoDartMethod{
+  string                                name                  = 1;
+  string                                return_type           = 2;
+  repeated ProtoDartPositionalParameter positional_parameters = 3;
+  repeated ProtoDartNamedParameter      named_parameters      = 4;  
+  repeated ProtoDartDecorator           decorators            = 5;  
+}
+*/
+
+
+
+
+extend google.protobuf.FieldOptions {
+  ProtoDartDecorator          dart_decorator  = 50001;
+  ProtoDartField              dart_field      = 50002;
+}
+
+extend google.protobuf.MessageOptions {
+  ProtoDartClass              dart_class      = 51001;
+}
+
+extend google.protobuf.EnumOptions {
+  ProtoDartEnum       dart_enum       = 52001;
+}
+
+
+extend google.protobuf.EnumValueOptions {
+  ProtoDartEnumValue  dart_enum_value = 53001;
+}
+
+message ProtoOration {
+    string                  token_id        = 1; //[(label) = "Nombre de app", (required) = true];
+    string                  message         = 2; //[(label) = "Versión",       (regex) = "Prueba"];
+    repeated string         text_parts      = 3;
+}
+
+message ProtoNegativeResult {
+    int32                   error_code      = 1;
+    ProtoOration            message         = 2;    
+}
+
+message ProtoResult {
+  bool                      its_correct     = 1;
+  oneof value {
+    google.protobuf.Any     content         = 2;
+    ProtoNegativeResult     error           = 3;
+  }
+}
+
+message ProtoVoidResult {
+  bool                      its_correct     = 1;
+  oneof value {
+    google.protobuf.Empty   content         = 2;
+    ProtoNegativeResult     error           = 3;
+  }
+}
+
+message ProtoAppStatus{
+    string                  name            = 1;
+    double                  version         = 2;
+    bool                    is_enable       = 3;
+    bool                    is_initialized  = 4;
+    ProtoNegativeResult     last_init_error = 5;   
+}
+
+service MaxiApp{
+    rpc Initialize(google.protobuf.Empty) returns (ProtoResult);
+    rpc GetStatus(google.protobuf.Empty) returns (ProtoAppStatus);
+}
+
+
+
+
+
