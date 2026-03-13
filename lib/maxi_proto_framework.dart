@@ -4,3 +4,11 @@ export 'src/generated/maxi_proto.pb.dart';
 export 'src/generated/maxi_proto.pbenum.dart';
 export 'src/generated/maxi_proto.pbgrpc.dart';
 export 'src/generated/maxi_proto.pbjson.dart';
+
+export 'package:protobuf/well_known_types/google/protobuf/empty.pb.dart';
+export 'package:protobuf/well_known_types/google/protobuf/any.pb.dart';
+
+export 'src/converters/oration_to_proto.dart';
+export 'src/converters/negative_result_to_proto.dart';
+export 'src/adapters/adapter_proto_to_oration.dart';
+export 'src/adapters/adapter_proto_to_negative_result.dart';

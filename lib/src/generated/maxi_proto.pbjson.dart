@@ -126,15 +126,15 @@ const ProtoOration$json = {
   '1': 'ProtoOration',
   '2': [
     {'1': 'token_id', '3': 1, '4': 1, '5': 9, '10': 'tokenId'},
-    {'1': 'message', '3': 2, '4': 1, '5': 9, '10': 'message'},
+    {'1': 'text', '3': 2, '4': 1, '5': 9, '10': 'text'},
     {'1': 'text_parts', '3': 3, '4': 3, '5': 9, '10': 'textParts'},
   ],
 };
 
 /// Descriptor for `ProtoOration`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List protoOrationDescriptor = $convert.base64Decode(
-    'CgxQcm90b09yYXRpb24SGQoIdG9rZW5faWQYASABKAlSB3Rva2VuSWQSGAoHbWVzc2FnZRgCIA'
-    'EoCVIHbWVzc2FnZRIdCgp0ZXh0X3BhcnRzGAMgAygJUgl0ZXh0UGFydHM=');
+    'CgxQcm90b09yYXRpb24SGQoIdG9rZW5faWQYASABKAlSB3Rva2VuSWQSEgoEdGV4dBgCIAEoCV'
+    'IEdGV4dBIdCgp0ZXh0X3BhcnRzGAMgAygJUgl0ZXh0UGFydHM=');
 
 @$core.Deprecated('Use protoNegativeResultDescriptor instead')
 const ProtoNegativeResult$json = {

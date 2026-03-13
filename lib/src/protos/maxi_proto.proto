@@ -87,7 +87,7 @@ extend google.protobuf.EnumValueOptions {
 
 message ProtoOration {
     string                  token_id        = 1; //[(label) = "Nombre de app", (required) = true];
-    string                  message         = 2; //[(label) = "Versión",       (regex) = "Prueba"];
+    string                  text            = 2; //[(label) = "Versión",       (regex) = "Prueba"];
     repeated string         text_parts      = 3;
 }
 

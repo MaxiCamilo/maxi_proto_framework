@@ -37,7 +37,7 @@ void main() {
     });
 
     test('View Attributes', () async {
-      final oration = ProtoOration(tokenId: '', message: 'Hi!', textParts: const []);
+      final oration = ProtoOration(tokenId: '', text: 'Hi!', textParts: const []);
       final info = oration.info_;
       for (final entry in info.fieldInfo.entries) {
         final tag = entry.key;

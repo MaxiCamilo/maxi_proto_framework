@@ -368,12 +368,12 @@ class ProtoDartEnumValue extends $pb.GeneratedMessage {
 class ProtoOration extends $pb.GeneratedMessage {
   factory ProtoOration({
     $core.String? tokenId,
-    $core.String? message,
+    $core.String? text,
     $core.Iterable<$core.String>? textParts,
   }) {
     final result = create();
     if (tokenId != null) result.tokenId = tokenId;
-    if (message != null) result.message = message;
+    if (text != null) result.text = text;
     if (textParts != null) result.textParts.addAll(textParts);
     return result;
   }
@@ -391,7 +391,7 @@ class ProtoOration extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'ProtoOration',
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'tokenId')
-    ..aOS(2, _omitFieldNames ? '' : 'message')
+    ..aOS(2, _omitFieldNames ? '' : 'text')
     ..pPS(3, _omitFieldNames ? '' : 'textParts')
     ..hasRequiredFields = false;
 
@@ -424,13 +424,13 @@ class ProtoOration extends $pb.GeneratedMessage {
   void clearTokenId() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get message => $_getSZ(1);
+  $core.String get text => $_getSZ(1);
   @$pb.TagNumber(2)
-  set message($core.String value) => $_setString(1, value);
+  set text($core.String value) => $_setString(1, value);
   @$pb.TagNumber(2)
-  $core.bool hasMessage() => $_has(1);
+  $core.bool hasText() => $_has(1);
   @$pb.TagNumber(2)
-  void clearMessage() => $_clearField(2);
+  void clearText() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $pb.PbList<$core.String> get textParts => $_getList(2);
