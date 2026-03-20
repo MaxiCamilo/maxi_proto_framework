@@ -19,7 +19,7 @@ class NegativeResultToProto implements SyncFunctionality<ProtoNegativeResult> {
 }
 
 extension NegativeResultToProtoExtension on Result {
-  Result<ProtoNegativeResult> toProto() {
+  Result<ProtoNegativeResult> toProtoError() {
     return NegativeResultToProto(negativeResult: this).execute();
   }
 }
