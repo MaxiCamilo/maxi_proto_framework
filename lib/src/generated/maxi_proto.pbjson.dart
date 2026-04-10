@@ -15,6 +15,22 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
+@$core.Deprecated('Use maxiProtoStreamStatusDescriptor instead')
+const MaxiProtoStreamStatus$json = {
+  '1': 'MaxiProtoStreamStatus',
+  '2': [
+    {'1': 'MXRT_TEXT', '2': 0},
+    {'1': 'MXRT_PARTIAL_CONTENT', '2': 1},
+    {'1': 'MXRT_ERROR', '2': 2},
+    {'1': 'MXRT_COMPLETED', '2': 3},
+  ],
+};
+
+/// Descriptor for `MaxiProtoStreamStatus`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List maxiProtoStreamStatusDescriptor = $convert.base64Decode(
+    'ChVNYXhpUHJvdG9TdHJlYW1TdGF0dXMSDQoJTVhSVF9URVhUEAASGAoUTVhSVF9QQVJUSUFMX0'
+    'NPTlRFTlQQARIOCgpNWFJUX0VSUk9SEAISEgoOTVhSVF9DT01QTEVURUQQAw==');
+
 @$core.Deprecated('Use protoDartDecoratorDescriptor instead')
 const ProtoDartDecorator$json = {
   '1': 'ProtoDartDecorator',
@@ -226,6 +242,58 @@ final $typed_data.Uint8List protoVoidResultDescriptor = $convert.base64Decode(
     'Cg9Qcm90b1ZvaWRSZXN1bHQSHwoLaXRzX2NvcnJlY3QYASABKAhSCml0c0NvcnJlY3QSMgoHY2'
     '9udGVudBgCIAEoCzIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eUgAUgdjb250ZW50EiwKBWVycm9y'
     'GAMgASgLMhQuUHJvdG9OZWdhdGl2ZVJlc3VsdEgAUgVlcnJvckIHCgV2YWx1ZQ==');
+
+@$core.Deprecated('Use protoVoidStreamDescriptor instead')
+const ProtoVoidStream$json = {
+  '1': 'ProtoVoidStream',
+  '2': [
+    {
+      '1': 'status',
+      '3': 1,
+      '4': 1,
+      '5': 14,
+      '6': '.MaxiProtoStreamStatus',
+      '10': 'status'
+    },
+    {
+      '1': 'text',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.ProtoOration',
+      '9': 0,
+      '10': 'text'
+    },
+    {
+      '1': 'completed',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Empty',
+      '9': 0,
+      '10': 'completed'
+    },
+    {
+      '1': 'error',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.ProtoNegativeResult',
+      '9': 0,
+      '10': 'error'
+    },
+  ],
+  '8': [
+    {'1': 'value'},
+  ],
+};
+
+/// Descriptor for `ProtoVoidStream`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List protoVoidStreamDescriptor = $convert.base64Decode(
+    'Cg9Qcm90b1ZvaWRTdHJlYW0SLgoGc3RhdHVzGAEgASgOMhYuTWF4aVByb3RvU3RyZWFtU3RhdH'
+    'VzUgZzdGF0dXMSIwoEdGV4dBgCIAEoCzINLlByb3RvT3JhdGlvbkgAUgR0ZXh0EjYKCWNvbXBs'
+    'ZXRlZBgDIAEoCzIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eUgAUgljb21wbGV0ZWQSLAoFZXJyb3'
+    'IYBCABKAsyFC5Qcm90b05lZ2F0aXZlUmVzdWx0SABSBWVycm9yQgcKBXZhbHVl');
 
 @$core.Deprecated('Use protoAppStatusDescriptor instead')
 const ProtoAppStatus$json = {

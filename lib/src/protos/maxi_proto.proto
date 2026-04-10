@@ -11,6 +11,13 @@ option objc_class_prefix = "HLW";
 
 //package maxi_proto_framework;
 
+enum MaxiProtoStreamStatus{
+  MXRT_TEXT                                   = 0;
+  MXRT_PARTIAL_CONTENT                        = 1;
+  MXRT_ERROR                                  = 2;
+  MXRT_COMPLETED                              = 3;
+}
+
 message ProtoDartDecorator{
   repeated string             dart_decorators = 1;
 }
@@ -110,6 +117,15 @@ message ProtoVoidResult {
     google.protobuf.Empty   content         = 2;
     ProtoNegativeResult     error           = 3;
   }
+}
+
+message ProtoVoidStream{
+    MaxiProtoStreamStatus status = 1;
+    oneof value{
+        ProtoOration text = 2;
+        google.protobuf.Empty completed = 3;
+        ProtoNegativeResult error = 4;
+    } 
 }
 
 message ProtoAppStatus{

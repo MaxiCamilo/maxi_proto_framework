@@ -16,7 +16,11 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import 'package:protobuf/well_known_types/google/protobuf/any.pb.dart' as $2;
 import 'package:protobuf/well_known_types/google/protobuf/empty.pb.dart' as $0;
 
+import 'maxi_proto.pbenum.dart';
+
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
+
+export 'maxi_proto.pbenum.dart';
 
 class ProtoDartDecorator extends $pb.GeneratedMessage {
   factory ProtoDartDecorator({
@@ -701,6 +705,125 @@ class ProtoVoidResult extends $pb.GeneratedMessage {
   void clearError() => $_clearField(3);
   @$pb.TagNumber(3)
   ProtoNegativeResult ensureError() => $_ensure(2);
+}
+
+enum ProtoVoidStream_Value { text, completed, error, notSet }
+
+class ProtoVoidStream extends $pb.GeneratedMessage {
+  factory ProtoVoidStream({
+    MaxiProtoStreamStatus? status,
+    ProtoOration? text,
+    $0.Empty? completed,
+    ProtoNegativeResult? error,
+  }) {
+    final result = create();
+    if (status != null) result.status = status;
+    if (text != null) result.text = text;
+    if (completed != null) result.completed = completed;
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  ProtoVoidStream._();
+
+  factory ProtoVoidStream.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ProtoVoidStream.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static const $core.Map<$core.int, ProtoVoidStream_Value>
+      _ProtoVoidStream_ValueByTag = {
+    2: ProtoVoidStream_Value.text,
+    3: ProtoVoidStream_Value.completed,
+    4: ProtoVoidStream_Value.error,
+    0: ProtoVoidStream_Value.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ProtoVoidStream',
+      createEmptyInstance: create)
+    ..oo(0, [2, 3, 4])
+    ..aE<MaxiProtoStreamStatus>(1, _omitFieldNames ? '' : 'status',
+        enumValues: MaxiProtoStreamStatus.values)
+    ..aOM<ProtoOration>(2, _omitFieldNames ? '' : 'text',
+        subBuilder: ProtoOration.create)
+    ..aOM<$0.Empty>(3, _omitFieldNames ? '' : 'completed',
+        subBuilder: $0.Empty.create)
+    ..aOM<ProtoNegativeResult>(4, _omitFieldNames ? '' : 'error',
+        subBuilder: ProtoNegativeResult.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ProtoVoidStream clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ProtoVoidStream copyWith(void Function(ProtoVoidStream) updates) =>
+      super.copyWith((message) => updates(message as ProtoVoidStream))
+          as ProtoVoidStream;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ProtoVoidStream create() => ProtoVoidStream._();
+  @$core.override
+  ProtoVoidStream createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ProtoVoidStream getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ProtoVoidStream>(create);
+  static ProtoVoidStream? _defaultInstance;
+
+  @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
+  @$pb.TagNumber(4)
+  ProtoVoidStream_Value whichValue() =>
+      _ProtoVoidStream_ValueByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
+  @$pb.TagNumber(4)
+  void clearValue() => $_clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  MaxiProtoStreamStatus get status => $_getN(0);
+  @$pb.TagNumber(1)
+  set status(MaxiProtoStreamStatus value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasStatus() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearStatus() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  ProtoOration get text => $_getN(1);
+  @$pb.TagNumber(2)
+  set text(ProtoOration value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasText() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearText() => $_clearField(2);
+  @$pb.TagNumber(2)
+  ProtoOration ensureText() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $0.Empty get completed => $_getN(2);
+  @$pb.TagNumber(3)
+  set completed($0.Empty value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasCompleted() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearCompleted() => $_clearField(3);
+  @$pb.TagNumber(3)
+  $0.Empty ensureCompleted() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  ProtoNegativeResult get error => $_getN(3);
+  @$pb.TagNumber(4)
+  set error(ProtoNegativeResult value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasError() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearError() => $_clearField(4);
+  @$pb.TagNumber(4)
+  ProtoNegativeResult ensureError() => $_ensure(3);
 }
 
 class ProtoAppStatus extends $pb.GeneratedMessage {
