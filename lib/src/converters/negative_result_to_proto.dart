@@ -23,3 +23,14 @@ extension NegativeResultToProtoExtension on Result {
     return NegativeResultToProto(negativeResult: this).execute();
   }
 }
+
+extension ErrorDataToProtoExtension on ErrorData {
+  Result<ProtoNegativeResult> toProtoError() {
+    final oration = OrationToProto(oration: message).execute();
+    if (oration.itsFailure) {
+      return oration.cast();
+    }
+
+    return ProtoNegativeResult(errorCode: errorCode.index, message: oration.content).asResultValue();
+  }
+}
