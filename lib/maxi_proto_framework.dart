@@ -16,3 +16,6 @@ export 'src/adapters/adapter_proto_to_negative_result.dart';
 export 'src/extensions/result_extension.dart';
 
 export 'src/tools/check_cancel_service_call.dart';
+
+export 'src/grpc_unix_socket/grpc_unix_socket_channel.dart';
+export 'src/grpc_unix_socket/grpc_unix_socket_server.dart';
