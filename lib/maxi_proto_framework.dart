@@ -12,8 +12,11 @@ export 'src/converters/oration_to_proto.dart';
 export 'src/converters/negative_result_to_proto.dart';
 export 'src/adapters/adapter_proto_to_oration.dart';
 export 'src/adapters/adapter_proto_to_negative_result.dart';
+export 'src/adapters/app_status_proto_adapter.dart';
 
 export 'src/extensions/result_extension.dart';
+
+export 'src/models/app_status.dart';
 
 export 'src/tools/check_cancel_service_call.dart';
 
