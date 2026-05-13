@@ -3,12 +3,12 @@ import 'dart:io';
 
 import 'package:grpc/grpc.dart';
 import 'package:http2/http2.dart';
-import 'package:maxi_framework/maxi_framework.dart';
 
 T grpcBuildUnixSocket<T extends Client>(String socketPath, T Function(ClientTransportConnectorChannel channel) clientBuilder, {ChannelOptions options = const ChannelOptions()}) {
   final channel = GrpcUnixSocketChannel(socketPath, options: options);
   return clientBuilder(channel);
 }
+
 
 class GrpcUnixSocketChannel extends ClientTransportConnectorChannel {
   GrpcUnixSocketChannel._({
@@ -23,51 +23,13 @@ class GrpcUnixSocketChannel extends ClientTransportConnectorChannel {
   factory GrpcUnixSocketChannel(String socketPath, {ChannelOptions options = const ChannelOptions()}) {
     return GrpcUnixSocketChannel._(
       socketPath: socketPath,
-      transportConnector: appManager.isWindows ? _GrpcWindowsUnixSocketConnector(socketPath) : _GrpcUnixSocketNativeConnector(socketPath: socketPath),
+      transportConnector: _GrpcUnixSocketNativeConnector(socketPath: socketPath),
       options: options,
     );
   }
 }
 
-class _GrpcWindowsUnixSocketConnector extends ClientTransportConnector {
-  final String _path;
 
-  WinUnixSocketClient? _client;
-  final Completer<void> _done = Completer();
-
-  _GrpcWindowsUnixSocketConnector(this._path);
-
-  @override
-  String get authority => 'localhost';
-
-  @override
-  Future<ClientTransportConnection> connect() async {
-    final winSocket = WinUnixSocketClient.buildClient(_path);
-    if (winSocket.itsFailure) {
-      throw winSocket;
-    }
-
-    _client = winSocket.content;
-    final initResult = await _client!.initialize();
-    if (initResult.itsFailure) {
-      throw initResult;
-    }
-
-    _client!.onDispose.whenComplete(() => shutdown());
-
-    return ClientTransportConnection.viaStreams(_client!.getReceiver().content, _client!.toSink());
-  }
-
-  @override
-  Future<void> get done => _done.future;
-
-  @override
-  void shutdown() {
-    _client?.dispose();
-    _client = null;
-    if (!_done.isCompleted) _done.complete();
-  }
-}
 
 class _GrpcUnixSocketNativeConnector implements ClientTransportConnector {
   final String socketPath;

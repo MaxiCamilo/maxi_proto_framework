@@ -11,11 +11,18 @@ environment:
 dependencies:
   protobuf: ^6.0.0
   grpc: ^5.1.0
+  
+
   # path: ^1.9.0
   maxi_framework:
     path: ../../NuevoRumbo/maxi_framework
+
+  maxi_thread:
+    path: ../../NuevoRumbo/maxi_thread
+
   fixnum: ^1.1.1
   http2: ^2.3.1
+  rxdart: ^0.28.0
 
 dev_dependencies:
   lints: ^6.0.0
